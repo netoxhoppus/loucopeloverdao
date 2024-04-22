@@ -1,11 +1,19 @@
 from django.db import models
 from tinymce.models import HTMLField
 
+#Thumbnail
+from django.core.files.uploadedfile import SimpleUploadedFile
+from PIL import Image
+import os
+
 # Create your models here.
 
 class ConfigImageSite(models.Model):
     logo_header = models.ImageField(blank=False, upload_to="configSite/logo")
     header_card = models.ImageField(blank=False, upload_to="configSite/logo")
+
+
+    
 
     class Meta:
         verbose_name_plural = "Configurações do site"
@@ -23,6 +31,10 @@ class Post(models.Model):
     corpo = HTMLField()
     imagem = models.ImageField(blank=False, upload_to="blog/img/post", default="")
 
+
+    class Meta:
+        verbose_name = 'Post'
+        verbose_name_plural = 'Posts'
     def __str__(self):
         return self.titulo
 

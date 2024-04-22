@@ -10,13 +10,12 @@
           <div class="col-lg-12">
             <div class="trending-tittle">
               <strong>ÚLTIMAS</strong>
-              <!-- <p>Rem ipsum dolor sit amet, consectetur adipisicing elit.</p> -->
+              <!-- Trend animation -->
               {%for trend in trend%}
               <div class="trending-animated">
                 <ul id="js-news" class="js-hidden">
                   <li class="news-item">
-                    <a href="{%url 'post' trend.id%}" >{{trend.titulo}}</a>
-                    
+                    <a href="{%url 'post' trend.id%}" >{{trend.titulo}}</a>   
                   </li>
                 </ul>
               </div>
@@ -26,8 +25,7 @@
         </div>
         <div class="row">
           <div class="col-lg-8">
-            <!-- Trending Top -->
-            
+            <!-- Trending Top (last)-->
             <div class="trending-top mb-30">
               <div class="trend-top-img">
                 <img src="{% static last.imagem%}" alt="" />
@@ -39,54 +37,36 @@
                 </div>
               </div>
             </div>
-            
             <!-- Trending Bottom -->
             <div class="trending-bottom">
               <div class="row">
-                <div class="col-lg-4">
-                  <div class="single-bottom mb-35">
-                    <div class="trend-bottom-img mb-30">
-                      <img src="{% static '/blog/img/trending/trending_bottom1.jpg'%}" alt=""/>
-                    </div>
-                    <div class="trend-bottom-cap">
-                      <span class="color1">Lifestyple</span>
-                      <h4>
-                        <a href="details.html">Get the Illusion of Fuller Lashes by “Mascng.”</a>post/1
-                      </h4>
-                    </div>
+                <style>
+                  .trend-bottom-img {
+                      width: 200px; /* Defina o tamanho desejado para as imagens */
+                      height: 200px; /* Defina o tamanho desejado para as imagens */
+                      overflow: hidden; /* Esconde qualquer parte da imagem que ultrapassar o contêiner */
+                  }
+              
+                  .trend-bottom-img img {
+                      width: 100%; /* Garante que a imagem ocupe toda a largura do contêiner pai */
+                      height: auto; /* Permite que a altura seja ajustada automaticamente para manter a proporção */
+                  }
+              </style>
+                {%for trend in trend%}
+                  <div class="col-lg-4">
+                      <div class="single-bottom mb-35">
+                          <div  class="trend-bottom-img mb-30">
+                              <img src="{% static trend.imagem%}" alt="">
+                          </div>
+                          <div class="trend-bottom-cap">
+                              <span class="color2">{{trend.categoria}}</span>
+                              <h4><h4><a href="{% url 'post' trend.id %}">{{trend.titulo}}</a></h4></h4>
+                          </div>
+                      </div>
                   </div>
-                </div>
-                <div class="col-lg-4">
-                  <div class="single-bottom mb-35">
-                    <div class="trend-bottom-img mb-30">
-                      <img src="{% static '/blog/img/trending/trending_bottom2.jpg'%}" alt=""/>
-                    </div>
-                    <div class="trend-bottom-cap">
-                      <span class="color2">Sports</span>
-                      <h4>
-                        <h4>
-                          <a href="details.html" >Get the Illusion of Fuller Lashes by “Mascng.”</a>
-                        </h4>
-                      </h4>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-4">
-                  <div class="single-bottom mb-35">
-                    <div class="trend-bottom-img mb-30">
-                      <img src="{% static '/blog/img/trending/trending_bottom3.jpg'%}" alt=""/>
-                    </div>
-                    <div class="trend-bottom-cap">
-                      <span class="color3">Travels</span>
-                      <h4>
-                        <a href="details.html">
-                          Welcome To The Best Model Winner Contest</a>
-                      </h4>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+                {%endfor%}
+               </div>
+            </div>     
           </div>
           <!-- Riht content -->
           <div class="col-lg-4">
