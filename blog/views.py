@@ -12,6 +12,6 @@ def post(request, id):
 
 def home(request):
     post = Post.objects.last()
-    trending_posts = Post.objects.all()[:3]
-    
+    trending_posts = Post.objects.exclude(id=post.id).order_by('-id')[:3]
+ 
     return render(request, "blog/home.html",{"last": post, "trend":trending_posts})
