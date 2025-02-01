@@ -1,119 +1,122 @@
 {% extends 'blog/base.html' %}
 {% load static %}
+
 {% block content %}
 <!-- Trending Area Start -->
 <div class="trending-area fix">
-<div class="container">
-<div class="trending-main">
-<!-- Trending Tittle -->
-<div class="row">
-{%include 'blog/trending_now.html' %}
-</div>
-<div class="row">
-<div class="col-lg-8">
-<!-- Trending Top (last)-->
-<div class="trending-top mb-30">
-<div class="trend-top-img">
-<img src="{% static last.imagem%}" alt="" />
-<div class="trend-top-cap">
-<span>{{last.categoria}}</span>
-<h2>
-<a href="{% url 'post' last.id %}">{{last.titulo}}</a>
-</h2>
-</div>
-</div>
-</div>
-<!-- Trending Bottom -->
-<div class="trending-bottom">
-<div class="row">
-<style>
-.trend-bottom-img {
-width: 200px; /* Defina o tamanho desejado para as imagens */
-height: 200px; /* Defina o tamanho desejado para as imagens */
-overflow: hidden; /* Esconde qualquer parte da imagem que ultrapassar o contêiner */
-}
-.trend-bottom-img img {
-width: 100%; /* Garante que a imagem ocupe toda a largura do contêiner pai */
-height: auto; /* Permite que a altura seja ajustada automaticamente para manter a proporção */
-}
-</style>
-{%for trend in trend%}
-<div class="col-lg-4">
-<div class="single-bottom mb-5">
-<div  class="trend-bottom-img mb-10">
-<img src="{% static trend.thumbnail%}" alt="">
-</div>
-<div class="trend-bottom-cap">
-<span class="color2">{{trend.categoria}}</span>
-<h4><h4><a href="{% url 'post' trend.id %}">{{trend.titulo}}</a></h4></h4>
-</div>
-</div>
-</div>
-{%endfor%}
-</div>
-</div>
-</div>
-<!-- Riht content -->
-<div class="col-lg-4">
-<div class="trand-right-single d-flex">
-<div class="trand-right-img">
-<img src="{% static '/blog/img/trending/right1.jpg'%}" alt="" />
-</div>
-<div class="trand-right-cap">
-<span class="color1">Concert</span>
-<h4>
-<a href="details.html">Welcome To The Best Model Winner Contest</a>
-</h4>
-</div>
-</div>
-<div class="trand-right-single d-flex">
-<div class="trand-right-img">
-<img src="{% static '/blog/img/trending/right2.jpg'%}" alt="" />
-</div>
-<div class="trand-right-cap">
-<span class="color3">sea beach</span>
-<h4>
-<a href="details.html">Welcome To The Best Model Winner Contest</a>
-</h4>
-</div>
-</div>
-<div class="trand-right-single d-flex">
-<div class="trand-right-img">
-<img src="{% static '/blog/img/trending/right3.jpg'%}" alt="" />
-</div>
-<div class="trand-right-cap">
-<span class="color2">Bike Show</span>
-<h4>
-<a href="details.html">Welcome To The Best Model Winner Contest</a>
-</h4>
-</div>
-</div>
-<div class="trand-right-single d-flex">
-<div class="trand-right-img">
-<img src="{% static '/blog/img/trending/right4.jpg'%}" alt="" />
-</div>
-<div class="trand-right-cap">
-<span class="color4">See beach</span>
-<h4>
-<a href="details.html">Welcome To The Best Model Winner Contest</a>
-</h4>
-</div>
-</div>
-<div class="trand-right-single d-flex">
-<div class="trand-right-img">
-<img src="{% static '/blog/img/trending/right5.jpg'%}" alt="" />
-</div>
-<div class="trand-right-cap">
-<span class="color1">Skeping</span>
-<h4>
-<a href="details.html">Welcome To The Best Model Winner Contest</a>
-</h4>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+    <div class="container">
+        <div class="trending-main">
+            <!-- Trending Tittle -->
+            <div class="row">
+                {% include 'blog/trending_now.html' %}
+            </div>
+            <div class="row">
+                <div class="col-lg-8">
+                    <!-- Trending Top (last)-->
+                    <div class="trending-top mb-30">
+                        <div class="trend-top-img">
+                            <img src="{% static last.imagem %}" alt="" />
+                            <div class="trend-top-cap">
+                                <span>{{ last.categoria }}</span>
+                                <h2>
+                                    <a href="{% url 'post' last.id %}">{{ last.titulo }}</a>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Trending Bottom -->
+                    <div class="trending-bottom">
+                        <div class="row">
+                            <style>
+                                .trend-bottom-img {
+                                    width: 200px;
+                                    height: 200px;
+                                    overflow: hidden;
+                                }
+                                .trend-bottom-img img {
+                                    width: 100%;
+                                    height: auto;
+                                }
+                            </style>
+                            {% for trend in trend %}
+                            <div class="col-lg-4">
+                                <div class="single-bottom mb-5">
+                                    <div class="trend-bottom-img mb-10">
+                                        <img src="{% static trend.thumbnail %}" alt="">
+                                    </div>
+                                    <div class="trend-bottom-cap">
+                                        <span class="color2">{{ trend.categoria }}</span>
+                                        <h4>
+                                            <a href="{% url 'post' trend.id %}">{{ trend.titulo }}</a>
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <!-- Riht content -->
+                <div class="col-lg-4">
+                    <div class="trand-right-single d-flex">
+                        <div class="trand-right-img">
+                            <img src="{% static '/blog/img/trending/right1.jpg' %}" alt="" />
+                        </div>
+                        <div class="trand-right-cap">
+                            <span class="color1">Concert</span>
+                            <h4>
+                                <a href="details.html">Welcome To The Best Model Winner Contest</a>
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="trand-right-single d-flex">
+                        <div class="trand-right-img">
+                            <img src="{% static '/blog/img/trending/right2.jpg' %}" alt="" />
+                        </div>
+                        <div class="trand-right-cap">
+                            <span class="color3">sea beach</span>
+                            <h4>
+                                <a href="details.html">Welcome To The Best Model Winner Contest</a>
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="trand-right-single d-flex">
+                        <div class="trand-right-img">
+                            <img src="{% static '/blog/img/trending/right3.jpg' %}" alt="" />
+                        </div>
+                        <div class="trand-right-cap">
+                            <span class="color2">Bike Show</span>
+                            <h4>
+                                <a href="details.html">Welcome To The Best Model Winner Contest</a>
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="trand-right-single d-flex">
+                        <div class="trand-right-img">
+                            <img src="{% static '/blog/img/trending/right4.jpg' %}" alt="" />
+                        </div>
+                        <div class="trand-right-cap">
+                            <span class="color4">See beach</span>
+                            <h4>
+                                <a href="details.html">Welcome To The Best Model Winner Contest</a>
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="trand-right-single d-flex">
+                        <div class="trand-right-img">
+                            <img src="{% static '/blog/img/trending/right5.jpg' %}" alt="" />
+                        </div>
+                        <div class="trand-right-cap">
+                            <span class="color1">Skeping</span>
+                            <h4>
+                                <a href="details.html">Welcome To The Best Model Winner Contest</a>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <!-- Trending Area End -->
 {% endblock %}
