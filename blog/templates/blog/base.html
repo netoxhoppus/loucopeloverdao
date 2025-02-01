@@ -1,20 +1,25 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>{% block title %}{% endblock %}</title>
-{% include 'blog/assets.css.html' %}
-<!-- include css assets-->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}{% endblock %}</title>
+    {% include 'blog/assets.css.html' %}
+    <!-- include css assets-->
 </head>
+
 <body>
-{%include 'blog/header.html'%}
-{% block content %}
-{% endblock %}
-{%block footer%}
-{% include 'blog/footer.html' %}       <!-- include footer-->
-{%endblock%}
-{% include 'blog/assets.js.html' %}    <!-- include js assets-->
+    {% include 'blog/header.html' %}
+    {% block content %}
+    {% endblock %}
+    {% block footer %}
+    {% include 'blog/footer.html' %}
+    <!-- include footer-->
+    {% endblock %}
+    {% include 'blog/assets.js.html' %}
+    <!-- include js assets-->
 </body>
+
 </html>
