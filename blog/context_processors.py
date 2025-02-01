@@ -1,5 +1,4 @@
 from .models import ConfigImageSite, Post
-
 def conf_imgs(request):
     imgs = ConfigImageSite.objects.all()
     return {"imgs": imgs}

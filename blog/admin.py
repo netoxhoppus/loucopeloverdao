@@ -1,15 +1,12 @@
 from django.contrib import admin
 from django import forms
 from .models import  ConfigImageSite, Post, Categoria
-# Register your models here.
-from django.contrib import admin
-from .models import Post
 
+# Register your models here.
 class PostAdminForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = '__all__'  # Exibir todos os campos, exceto o campo 'thumbnail'
-
     def __init__(self, *args, **kwargs):
         super(PostAdminForm, self).__init__(*args, **kwargs)
         if 'thumbnail' in self.fields:
